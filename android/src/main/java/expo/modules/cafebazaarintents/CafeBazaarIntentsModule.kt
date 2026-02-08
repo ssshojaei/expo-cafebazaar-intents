@@ -72,12 +72,26 @@ class CafeBazaarIntentsModule : Module() {
     }
 
     AsyncFunction("openLoginPage") { options: Map<String, Any>?, promise: Promise ->
+      val openInBrowser = (options?.get("openInBrowserIfNotInstalled") as? Boolean) == true
+      val ctx = appContext.reactContext
+      if (ctx == null) {
+        promise.resolve(false)
+        return@AsyncFunction
+      }
+      // bazaar://inapplogin is used by the Auth SDK for in-app sign-in and may not open a visible
+      // login page when started from another app. Prefer opening the web sign-in page so the user
+      // always sees the login screen.
+      if (openInBrowser) {
+        openInBrowser(ctx, WEB_SIGNIN)
+        promise.resolve(true)
+        return@AsyncFunction
+      }
       promise.resolve(
         openIntent(
           action = Intent.ACTION_VIEW,
           uri = Uri.parse(URI_INAPP_LOGIN),
           webFallback = WEB_SIGNIN,
-          openInBrowserIfNotInstalled = (options?.get("openInBrowserIfNotInstalled") as? Boolean) == true
+          openInBrowserIfNotInstalled = false
         )
       )
     }
