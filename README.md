@@ -90,13 +90,6 @@ All `open*` methods return a `Promise<boolean>`: `true` if the Bazaar intent was
 
 The module declares a `<queries>` entry for `com.farsitel.bazaar` so the app can detect whether Bazaar is installed. No extra config plugin is required.
 
-## Publishing
-
-This package is suitable for npm. To publish:
-
-1. Set `repository`, `bugs`, `homepage` and `author` in `package.json` if needed.
-2. Run `npm publish` (or use a scope like `@yourname/expo-cafebazaar-intents`).
-
 ## License
 
 MIT
