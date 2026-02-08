@@ -34,6 +34,22 @@ export interface CafeBazaarIntentsModule {
     developerId: string,
     options?: OpenIntentOptions
   ): Promise<boolean>;
+
+  /**
+   * Opens the Bazaar login page (in-app login / sign-in screen).
+   * @param options - Optional behavior when Bazaar is not installed
+   */
+  openLoginPage(options?: OpenIntentOptions): Promise<boolean>;
+
+  /**
+   * Opens the app page in Bazaar so the user can update the app (same as app details page).
+   * @param packageId - Android application ID (e.g. "com.example.app")
+   * @param options - Optional behavior when Bazaar is not installed
+   */
+  openAppUpdatePage(
+    packageId: string,
+    options?: OpenIntentOptions
+  ): Promise<boolean>;
 }
 
 const NativeModule =

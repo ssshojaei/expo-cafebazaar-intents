@@ -1,7 +1,7 @@
 {
   "name": "expo-cafebazaar-intents",
   "version": "1.0.0",
-  "description": "Cafe Bazaar intents for Expo (Android): open app page, rate app, and open developer page in Bazaar.",
+  "description": "CafeBazaar intents for Expo (Android): app page, rate/reviews page, developer page, CafeBazaar login page, and app update page.",
   "main": "src/index.ts",
   "types": "src/index.ts",
   "sideEffects": false,

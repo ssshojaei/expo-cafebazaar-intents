@@ -13,8 +13,10 @@ private const val BAZAAR_PACKAGE = "com.farsitel.bazaar"
 private const val SCHEME_BAZAAR = "bazaar"
 private const val URI_DETAILS = "$SCHEME_BAZAAR://details"
 private const val URI_COLLECTION = "$SCHEME_BAZAAR://collection"
+private const val URI_INAPP_LOGIN = "$SCHEME_BAZAAR://inapplogin"
 private const val WEB_APP_BASE = "https://cafebazaar.ir/app/"
 private const val WEB_DEVELOPER_BASE = "https://cafebazaar.ir/developer/"
+private const val WEB_SIGNIN = "https://cafebazaar.ir/signin"
 
 /**
  * Cafe Bazaar intents for Expo (Android).
@@ -64,6 +66,28 @@ class CafeBazaarIntentsModule : Module() {
           action = Intent.ACTION_VIEW,
           uri = Uri.parse("$URI_COLLECTION?slug=by_author&aid=$developerId"),
           webFallback = "$WEB_DEVELOPER_BASE$developerId",
+          openInBrowserIfNotInstalled = (options?.get("openInBrowserIfNotInstalled") as? Boolean) == true
+        )
+      )
+    }
+
+    AsyncFunction("openLoginPage") { options: Map<String, Any>?, promise: Promise ->
+      promise.resolve(
+        openIntent(
+          action = Intent.ACTION_VIEW,
+          uri = Uri.parse(URI_INAPP_LOGIN),
+          webFallback = WEB_SIGNIN,
+          openInBrowserIfNotInstalled = (options?.get("openInBrowserIfNotInstalled") as? Boolean) == true
+        )
+      )
+    }
+
+    AsyncFunction("openAppUpdatePage") { packageId: String, options: Map<String, Any>?, promise: Promise ->
+      promise.resolve(
+        openIntent(
+          action = Intent.ACTION_VIEW,
+          uri = Uri.parse("$URI_DETAILS?id=$packageId"),
+          webFallback = "$WEB_APP_BASE$packageId",
           openInBrowserIfNotInstalled = (options?.get("openInBrowserIfNotInstalled") as? Boolean) == true
         )
       )
