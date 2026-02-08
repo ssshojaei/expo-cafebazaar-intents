@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="expo.modules.cafebazaarintents">
+  <!-- Required on Android 11+ so the app can detect if Cafe Bazaar is installed. -->
+  <queries>
+    <package android:name="com.farsitel.bazaar" />
+  </queries>
+</manifest>

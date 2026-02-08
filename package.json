@@ -1,0 +1,53 @@
+{
+  "name": "expo-cafebazaar-intents",
+  "version": "1.0.0",
+  "description": "Cafe Bazaar intents for Expo (Android): open app page, rate app, and open developer page in Bazaar.",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "expo-module build"
+  },
+  "keywords": [
+    "expo",
+    "expo-module",
+    "react-native",
+    "cafe-bazaar",
+    "bazaar",
+    "cafebazaar",
+    "iran",
+    "intent",
+    "rate",
+    "android"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssshojaei/expo-cafebazaar-intents.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ssshojaei/expo-cafebazaar-intents/issues"
+  },
+  "author": "",
+  "license": "MIT",
+  "homepage": "https://github.com/ssshojaei/expo-cafebazaar-intents#readme",
+  "files": [
+    "src",
+    "android/build.gradle",
+    "android/src",
+    "expo-module.config.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "devDependencies": {
+    "expo-module-scripts": "^5.0.8"
+  },
+  "peerDependencies": {
+    "expo": "*",
+    "expo-modules-core": "*"
+  },
+  "peerDependenciesMeta": {
+    "expo-modules-core": {
+      "optional": false
+    }
+  }
+}
